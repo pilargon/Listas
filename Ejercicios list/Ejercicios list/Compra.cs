@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ejercicios_list
 {
-    class Program
+    class Compra
     {
         static void Main(string[] args)
         {//Método CreaLista:
