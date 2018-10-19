@@ -23,11 +23,11 @@ namespace Elene_de_Troya
             this.nombre = nombre;
             if (ComprobarEdad(edad))
             {
-                this.edad = 25;
+                this.edad = edad;
             }
             else
             {
-                this.edad = edad;
+                this.edad = 25;
             }
             if (ComprobarFuerza(f))
             {
@@ -37,8 +37,8 @@ namespace Elene_de_Troya
             {
                 this.f = f;
             }
-            herido = false;
-            muerto = false;
+            //herido = false;//realmente no haria falta porque no lo he declarado en el constructor
+            //muerto = false;//
         }
         //f)Crea un segundo constructor sin parámetros que ponga como nombre “TroyanoX”, 
         //edad 18 y fuerza 10.
@@ -97,26 +97,23 @@ namespace Elene_de_Troya
             Console.WriteLine("Troyano:Paris");
             Console.WriteLine("Edad:19 Fuerza:10");
             Console.WriteLine("Esta herido y los guerreros Troyanos NUNCA se retiran!!!");
-            return true;
+            return false;
         }
 
         //que devuelva true si la edad está entre 15 y 60 (ambos inclusive), false en caso contrario.
         public Boolean ComprobarEdad(int edad)
         {
-            if (edad >= 15 || edad <= 60)
+            if (edad >= 15 && edad <= 60)
             {
                 return true;
-            }
-            else
-            {
-                return false;
-            }
+            }                    
+                return false;           
         }
         // boolean ComprobarFuerza(int f) que devuelve true si la fuerza está entre 1 y 10 (ambos inclusive),
         //false en caso contrario.
         public Boolean ComprobarFuerza(int f)
         {
-            if (f >= 1 || f <= 10)
+            if (f >= 1 && f <= 10)
             {
                 return true;
             }

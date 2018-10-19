@@ -13,13 +13,13 @@ namespace Elene_de_Troya
         private int ocupacion;//representa el número actual de griegos en el caballo
         private List<Griego> ocupantes;//lista de objetos de la clase Griego.
 
-
+        //CAPACIDAD NO ES CTE.,PERO NO CAMBIA,POR LO QUE NO SE DEBE HACER SET
 
         public Caballo(int capacidad, int ocupacion, List<Griego> ocupantes)
-        {
+        {          
             this.capacidad = capacidad;
             this.ocupacion = ocupacion;
-            this.ocupantes = ocupantes;
+            this.ocupantes = ocupantes;           
         }
 
         public int BuscarGriego(string nombre)
@@ -34,8 +34,7 @@ namespace Elene_de_Troya
             }
             return posicion;
         }
-
-
+       
         //que reciba como parámetro un Griego y lo meta en la lista de ocupantes (si hay sitio).
         public void MontarseEnCaballo(Griego griego)
         {   
@@ -43,7 +42,7 @@ namespace Elene_de_Troya
             if(ocupantes.Count()< capacidad)
             {
                 ocupantes.Add(griego);
-                Console.WriteLine("Guerrero griego "+ griego+ "montado a caballo");
+                Console.WriteLine("Guerrero griego "+ griego.GetNombre()+ "montado a caballo");
             }
             else
             {
@@ -56,6 +55,10 @@ namespace Elene_de_Troya
             Console.WriteLine("Capacidad: " + capacidad);
             Console.WriteLine("Ocupacion: " + ocupacion);
             Console.WriteLine("Ocupantes: " + ocupantes);  
+            foreach(Griego persona in ocupantes)
+            {
+                persona.MostrarGriego();
+            }
             
         }
 

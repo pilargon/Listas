@@ -14,14 +14,15 @@ namespace Elene_de_Troya
         private bool herido;
         private bool muerto;
         private int f;
+        private bool retirarse;
 
-        public Griego(String nombre, int edad, int f,bool herido,bool muerto)
+        public Griego(String nombre, int edad, int f, bool herido, bool muerto)
         {
             this.nombre = nombre;
             this.edad = edad;
             this.f = f;
-            this.herido =herido;
-            this.muerto =herido;
+            this.herido = herido;
+            this.muerto = herido;
         }
         public Griego()
         {
@@ -69,17 +70,43 @@ namespace Elene_de_Troya
         {
             this.f = f;
         }
-        public bool Retirarse()
+
+        public void Retirarse(bool retirarse)
         {
-            Console.WriteLine("Accion:Retirarse");
-            Console.WriteLine("Griego:Ulises");
-            Console.WriteLine("Edad:28 Fuerza:3");
-            Console.WriteLine("Esta herido RETIRADA");
-            return true;
+            if (herido && !muerto)
+            {
+                this.retirarse = retirarse;
+            }
+            else
+            {
+
+                Console.WriteLine("Accion:Retirarse");
+                Console.WriteLine("Griego:Ulises");
+                Console.WriteLine("Edad:28 Fuerza:3");
+                Console.WriteLine("Esta herido RETIRADA");
+                this.retirarse = false;
+            }
         }
-        //TODO LO DEMAS PORQUE SERIA IR AL MAIN,INCLUIR LA CLASE GRIEGO Y A;ADIR TODO
-        //CAMBIA LA PARTE DE RETIRADA QUE HAY QUE TENER EN CUENTA SI ESTA HERIDO POR LO QUE HABRIA
-        //QUE HACER EL METODO QUE LO COMPRUEBE.
+        public void MostrarGriego()
+        {
+            Console.WriteLine("Facción:Griegos\nGuerrero: " + nombre + "\nEdad: " + edad + "\nFuerza: " + f);
+            if (herido && !muerto)
+            {
+                Console.WriteLine("El combatiente esta herido");
+            }
+            else if (muerto)
+            {
+                Console.WriteLine("El combatiente ha muerto");
+            }
+            else if (retirarse)
+            {
+                Console.WriteLine("El combatiente se ha retirado");
+            }
+            else
+            {
+                Console.WriteLine("Estado: Combatiente sano y en activo");
+            }
+        }
 
 
 

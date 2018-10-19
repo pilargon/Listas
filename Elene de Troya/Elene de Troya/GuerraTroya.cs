@@ -22,22 +22,22 @@ namespace Elene_de_Troya
             caballo.MontarseEnCaballo(g2);
             caballo.MontarseEnCaballo(g3);
             caballo.MostrarCaballo();
-            //Troyano t1 = new Troyano();
-            //Menu();
+            Troyano t1 = new Troyano();
+            Menu();
             Console.ReadLine();
 
         }
         static public void Menu()
         {
             int menuSelecion;
-            const int CREAR = 1, EXIT = 2, RETIRARSE = 3;
+            const int CREAR = 1, EXIT = 3, RETIRARSE = 2;
 
             do
             {
                 Console.WriteLine("Elige una opción: " +
                               "\n1. Crear Troyano!" +
-                              "\n3. Retirarse" +
-                              "\n2. Salir.");
+                              "\n2. Retirarse" +
+                              "\n3. Salir.");
                 menuSelecion = Convert.ToInt32(Console.ReadLine());
             } while (menuSelecion < 1 || menuSelecion > 3);
 
@@ -46,11 +46,11 @@ namespace Elene_de_Troya
                 case CREAR:
                     Registrar();
                     break;
-                case EXIT:
-                    break;
                 case RETIRARSE:
                     Troyano t1 = new Troyano();
                     t1.Retirarse();
+                    break;
+                case EXIT:
                     break;
 
             }
